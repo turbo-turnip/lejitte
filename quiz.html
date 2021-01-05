@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lejitte</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+
+
+        body
+        {
+            background: #fff;
+            width: 2000vw;
+            display: flex;
+        }
+        *
+        {
+            margin: 0;
+            padding: 0;
+            font-family: 'AudioWide';
+            transition: .4s;
+        }
+        .slider
+        {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+        }
+        .slide
+        {
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .slide-title
+        {
+            font-size: 2.4em;
+            text-align: center;
+            margin: .6em auto;
+        }
+        .options
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: .3em;
+        }
+        .options button
+        {
+            font-size: 2em;
+            padding: .2em .8em;
+            border: none;
+            background: #ddd;
+            box-shadow: 6px 6px 0 #00000050;
+            margin: .3em 0;
+            width: 60%;
+            min-width: 300px;
+            max-width: 700px;
+        }
+        .options button:hover
+        {
+            transform: translate(3px, 3px);
+            cursor: pointer;
+            box-shadow: 3px 3px 0 #00000050;
+        }
+        .ending-h1
+        {
+            margin: 1.2em auto;
+            font-size: 3em;
+        }
+        .ending-sub
+        {
+            color: #aaa;
+            margin: 0 auto;
+        }
+        .progress
+        {
+            height: 10px;
+            background: #0099ff;
+            width: 0%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+        .result
+        {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+        }
+        .bottom
+        {
+            position: absolute;
+            bottom: 0;
+            background: #fff;
+            text-align: center;
+        }
+        </style>
+</head>
+<body>
+    
+    <div class="slider">
+        <div class="slide">
+            <h1 class="slide-title">are you legit</h1>
+            <div class="options">
+                <button class="option" data-correct="true">yes</button>
+                <button class="option" data-correct="true">not yet</button>
+                <button class="option" data-correct="false">no</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">cats or dogs</h1>
+            <div class="options">
+                <button class="option" data-correct="true">cats</button>
+                <button class="option" data-correct="true">both cats and dogs</button>
+                <button class="option" data-correct="true">answer #1</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">is percussion a joke</h1>
+            <div class="options">
+                <button class="option" data-correct="true">nah</button>
+                <button class="option" data-correct="true">yes</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">do you attend Mr Soto's band & homeroom class?</h1>
+            <div class="options">
+                <button class="option" data-correct="true">yes</button>
+                <button class="option" data-correct="true">only homeroom</button>
+                <button class="option" data-correct="false">no :(</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">which brand has the best chips</h1>
+            <div class="options">
+                <button class="option" data-correct="true">Sotitos</button>
+                <button class="option" data-correct="false">Tostitos</button>
+                <button class="option" data-correct="false">Doritos</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">what are the hand gestures for 2 legit 2 quit?</h1>
+            <div class="options">
+                <button class="option" data-correct="false">✌️👆✌️👊</button>
+                <button class="option" data-correct="true">✌️👆✌️👉</button>
+                <button class="option" data-correct="false">✌️👆✌️🤟</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">what is the best car</h1>
+            <div class="options">
+                <button class="option" data-correct="true">Telsa</button>
+                <button class="option" data-correct="false">Lamborghini</button>
+                <button class="option" data-correct="false">Fiat</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">how do you smartly say "number"</h1>
+            <div class="options">
+                <button class="option" data-correct="false">number</button>
+                <button class="option" data-correct="false">integer</button>
+                <button class="option" data-correct="true">01101001 01101110 01110100</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">are you starting to notice how long this quiz is?</h1>
+            <div class="options">
+                <button class="option" data-correct="false">yes</button>
+                <button class="option" data-correct="true">no</button>
+                <button class="option" data-correct="true">i don't know</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">are you wondering what this epic font is?</h1>
+            <div class="options">
+                <button class="option" data-correct="true">yes tell me</button>
+                <button class="option" data-correct="false">no i don't care</button>
+                <button class="option" data-correct="true">meh</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">i don't care if you don't care (the font is AudioWide)</h1>
+            <div class="options">
+                <button class="option" data-correct="true">link please</button>
+                <button class="option" data-correct="false">how rude</button>
+                <button class="option" data-correct="true">cool...?</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">how many eyes do you have</h1>
+            <div class="options">
+                <button class="option" data-correct="false">1</button>
+                <button class="option" data-correct="false">2</button>
+                <button class="option" data-correct="true">3</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">sheet music or play by ear</h1>
+            <div class="options">
+                <button class="option" data-correct="false">play by ear</button>
+                <button class="option" data-correct="true">sheet music</button>
+                <button class="option" data-correct="false">no music at all</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">metronome or go with the flow</h1>
+            <div class="options">
+                <button class="option" data-correct="false">metronome</button>
+                <button class="option" data-correct="true">go with the flow</button>
+                <button class="option" data-correct="true">tap beat with foot</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">music stand or desk</h1>
+            <div class="options">
+                <button class="option" data-correct="false">music stand</button>
+                <button class="option" data-correct="true">knee</button>
+                <button class="option" data-correct="false">desk</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">leave zoom early or late</h1>
+            <div class="options">
+                <button class="option" data-correct="true">early</button>
+                <button class="option" data-correct="true">on time</button>
+                <button class="option" data-correct="true">late</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">you are in a band class; you are playing your trumpet when all of a sudden, your tooth comes out and you blow it down the trumpet until it gets caught in the 3d slide which stops the air flow causing you to fly backwards into a wall and break your arm. The bass drum falls on your head and you are knocked out of consiousness. What do you do?</h1>
+            <div class="options">
+                <button class="option" data-correct="false">Tell your brain to wake up bc you are 2 legit 2 quit</button>
+                <button class="option" data-correct="true">#BIOZ</button>
+                <button class="option" data-correct="true">what kind of question is that?</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">Veritassium or Mark Rober</h1>
+            <div class="options">
+                <button class="option" data-correct="true">Mark Rober</button>
+                <button class="option" data-correct="true">Veritassium</button>
+                <button class="option" data-correct="false">what's that?</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">do you want this quiz to end</h1>
+            <div class="options">
+                <button class="option" data-correct="true">yes</button>
+                <button class="option" data-correct="true">no</button>
+                <button class="option" data-correct="false">meh</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h1 class="slide-title">pandora or spotify</h1>
+            <div class="options">
+                <button class="option" data-correct="true">spotify</button>
+                <button class="option" data-correct="false">pandora</button>
+                <button class="option" data-correct="false">answer #1</button>
+            </div>
+        </div>
+    </div>
+
+    <span class="progress"></span>
+    <div class="result">
+        <h1 class="ended-h1"></h1>
+        <sub class="ended-sub"></sub>
+        <div class="bottom">
+            <span>Want to give us feedback on this quiz? Let us know at <a href="mailto:atticus@softwarefuze.com">Atticus@SoftwareFuze.com</a></span>
+        </div>
+    </div>
+
+
+
+    <script>
+        const progress = document.querySelector(".progress");
+        const slides = document.querySelectorAll(".slide");
+        const slider = document.querySelector(".slider");
+        let sliderLeft = 0;
+        let progressLeft = 0;
+        let score = 0;
+        let ended = false;
+
+
+        slides.forEach(slide => {
+
+            if (slide.querySelector(".slide-title").innerHTML.length > 300)
+                slide.querySelector(".slide-title").style.fontSize = "1em"
+
+            const { body } = document;
+            const btns = slide.querySelectorAll("button");
+
+            btns.forEach(btn => {
+
+                const isCorrect = btn.getAttribute('data-correct');
+
+                btn.addEventListener("click", () => {
+
+                    setTimeout(() =>
+                    {
+                        sliderLeft += 1;
+                        progressLeft += 5;
+                        body.style.background = "#fff";
+
+                        
+
+
+                    }, 1600);
+
+
+                    if (isCorrect == "true")
+                    {
+                        body.style.background = "#080"
+                        score++;
+
+                    } else if (isCorrect == "false")
+                        body.style.background = "#f00"
+
+                        
+
+
+
+
+                });
+
+
+
+
+
+
+            });
+
+
+
+
+
+
+        });
+
+
+
+        const checkSliderPos = () =>
+        {
+
+            document.body.style.marginLeft = -sliderLeft * 100 + "vw";
+            progress.style.width = progressLeft + "%";
+
+            if (document.body.style.marginLeft == "-2000vw")
+            {
+
+                let Score;
+
+
+                /*     case score < 10:
+                        Score = scores[1];
+                        break;
+                    case score >= 10 && score < 16:
+                        Score = scores[0];
+                        break;
+                    case score >= 16:
+                        Score = scores[2]; 
+                        break; */
+
+                if (score < 10)
+                    Score = "legit enough";
+                else if (score >= 10 && score < 16)
+                    Score = "legit";
+                else if (score >= 16)
+                    Score = "2 legit 2 quit";
+                else
+                {                                
+                    document.body.innerHTML = `
+                        <h1>Oops! Looks like you found a bug on this site!</h1>
+                        <h4>please report this bug so we can fix it ASAP</h4>
+                        <h2>contact SoftwareFuze at Atticus@SoftwareFuze.com</h2>
+                        <h5>Thanks for your patience!</h5>
+                    `;
+                }
+
+                const popup = document.querySelector(".result");
+                popup.querySelector("h1").innerHTML = `You are ${Score}.`;
+                popup.querySelector("sub").innerHTML = `(You answered ${score} questions correct out of 20)`;
+                setTimeout(() => 
+                    popup.style.display = "flex", 1000);
+
+            }
+
+            requestAnimationFrame(checkSliderPos);
+
+
+
+        }
+
+        checkSliderPos();
+
+        
+
+
+
+
+
+
+        console.log("%cPlease don't do it", "font-size: 2em; font-family: arial;");
+        console.log("%cAlso btw when you reload the page, all the effects will be gone because the default HTML page stays the same", "font-family: arial; font-size: 1.2em;");
+
+
+
+
+
+    </script>
+</body>
+</html>
